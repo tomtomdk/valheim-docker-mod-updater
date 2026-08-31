@@ -1,0 +1,29 @@
+{
+  "docker": {
+    "mode": "container",
+    "container_name": "valheim",
+    "compose_file": "/opt/valheim/docker-compose.yml",
+    "compose_project_dir": "/opt/valheim",
+    "compose_service": "valheim",
+    "docker_bin": "/usr/bin/docker"
+  },
+  "valheim": {
+    "target_root": "/opt/valheim/server"
+  },
+  "updater": {
+    "dir": "/opt/valheim-modupdater",
+    "mods_config": "/opt/valheim-modupdater/mods.json",
+    "state_file": "/opt/valheim-modupdater/state.json",
+    "sync_script": "/opt/valheim-modupdater/thunderstore_sync.py",
+    "lock_file": "/run/lock/valheim-docker-modupdater.lock"
+  },
+  "backups": {
+    "dir": "/opt/valheim-modupdater/backups/config-only",
+    "max_count": 5
+  },
+  "restart": {
+    "wait_seconds": 900,
+    "stop_timeout_seconds": 120,
+    "start_timeout_seconds": 180
+  }
+}
